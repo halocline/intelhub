@@ -1,0 +1,45 @@
+<%= form_for @data_source, :html => { :class => "form-horizontal data_source" } do |f| %>
+
+    <% if @data_source.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@data_source.errors.count, "error") %> prohibited this data_source from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @data_source.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@data_source[:name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :uri, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :uri, :class => 'form-control' %>
+    </div>
+    <%= error_span(@data_source[:uri]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%= error_span(@data_source[:description]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            data_sources_path, :class => 'btn btn-default' %>
+
+<% end %>

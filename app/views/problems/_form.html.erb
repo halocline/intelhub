@@ -1,0 +1,53 @@
+<%= form_for @problem, :html => { :class => "form-horizontal problem" } do |f| %>
+
+    <% if @problem.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@problem.errors.count, "error") %> prohibited this problem from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @problem.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@problem[:name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :problem_class_id, :class => 'control-label' %>
+    <div class="controls">
+      <!-- <%= f.number_field :problem_class_id, :class => 'form-control' %> -->
+      <%= f.select(:problem_class_id, [['Classification', 1], ['Clustering', 2], ['Lookup', 6]]) %>
+    </div>
+    <%= error_span(@problem[:problem_class_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :problem_roadmap_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :problem_roadmap_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@problem[:problem_roadmap_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :parent_problem_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :parent_problem_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@problem[:parent_problem_id]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            problems_path, :class => 'btn btn-default' %>
+
+<% end %>
