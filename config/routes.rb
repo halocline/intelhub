@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :roadmap_steps
+
   resources :data_sources
 
   resources :data_items

@@ -2,13 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-
 $(document).ready ->
-	$('#add-user').click ->
+	$('#add-step').click ->
 		$(this).toggle()
-		$('#new-user').toggle()
-	$('#cancel-add-user').click ->
-		$('#new-user').toggle()
-		$('#add-user').toggle()
-	
-
+		$('#new-step').toggle()
+	$('#cancel-add-step').click ->
+		$('#new-step').toggle()
+		$('#add-step').toggle()

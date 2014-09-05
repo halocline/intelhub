@@ -1,0 +1,40 @@
+<%- model_class = RoadmapStep -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:roadmap_id) %></th>
+      <th><%= model_class.human_attribute_name(:order) %></th>
+      <th><%= model_class.human_attribute_name(:step) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @roadmap_steps.each do |roadmap_step| %>
+      <tr>
+        <td><%= link_to roadmap_step.id, roadmap_step_path(roadmap_step) %></td>
+        <td><%= roadmap_step.roadmap_id %></td>
+        <td><%= roadmap_step.order %></td>
+        <td><%= roadmap_step.step %></td>
+        <td><%=l roadmap_step.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_roadmap_step_path(roadmap_step), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      roadmap_step_path(roadmap_step),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_roadmap_step_path,
+            :class => 'btn btn-primary' %>

@@ -10,6 +10,35 @@
   <dd><%= @roadmap.required_resources %></dd>
 </dl>
 
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <h2>Steps</h2>
+    </div>
+    <div id="steps" class="row">
+      <% @roadmap.roadmap_steps.each do |step| %>
+          <%= div_for step do %>
+            <div class="row">
+              <div class="col-md-2"><%= step.id %></div>
+              <div class="col-md-2"><%= link_to 'View', roadmap_step_path(step) %></div>
+            </div>
+          <% end %>
+      <% end %>
+    </div><!-- steps row -->
+    <div id="new-step" class="row" style="display: none;">
+      <div>yo</div>
+      <button id="cancel-add-step" class="btn btn-default">
+        <i class="fa fa-times"></i>
+      </button>
+    </div><!-- new-step row -->
+    <div class="row">
+      <button id="add-step" class="btn btn-default">
+        <i class="fa fa-plus"></i>
+      </button>
+    </div>
+  </div><!-- col-md-12 -->
+</div>
+
 <%= link_to t('.back', :default => t("helpers.links.back")),
               roadmaps_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
