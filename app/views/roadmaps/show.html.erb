@@ -18,15 +18,18 @@
     <div id="steps" class="row">
       <table class="table table-hover">
         <thead>
-          <th><%= model_class.human_attribute_name(:step) %></th>
           <th><%= model_class.human_attribute_name(:order) %></th>
+          <th><%= model_class.human_attribute_name(:step) %></th>
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </thead>
         <% @roadmap.roadmap_steps.each do |step| %>
           <tr>
-            <td><%= link_to step.step, roadmap_step_path(step) %></td>
             <td><%= step.order %></td>
-            <td><%= link_to 'Edit', edit_roadmap_step_path(step) %></td>
+            <td><%= link_to step.step, roadmap_step_path(step) %></td>
+            <td>
+              <%= link_to '', edit_roadmap_step_path(step), :class => 'btn btn-sm fa fa-edit' %>
+              <%= link_to '', roadmap_step_path(step), :class => 'btn btn-sm btn-danger fa fa-times' %>
+            </td>
           </tr>
         <% end %>
       </table>
