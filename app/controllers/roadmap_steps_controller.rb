@@ -30,7 +30,7 @@ class RoadmapStepsController < ApplicationController
 
     respond_to do |format|
       if @roadmap_step.save
-        format.html { redirect_to @roadmap_step, notice: 'Roadmap step was successfully created.' }
+        format.html { redirect_to @roadmap, notice: 'Roadmap step was successfully created.' }
         format.json { render :show, status: :created, location: @roadmap_step }
       else
         format.html { render :new }
@@ -42,9 +42,11 @@ class RoadmapStepsController < ApplicationController
   # PATCH/PUT /roadmap_steps/1
   # PATCH/PUT /roadmap_steps/1.json
   def update
+    @roadmap = Roadmap.find(@roadmap_step.roadmap_id)
+
     respond_to do |format|
       if @roadmap_step.update(roadmap_step_params)
-        format.html { redirect_to @roadmap_step, notice: 'Roadmap step was successfully updated.' }
+        format.html { redirect_to @roadmap, notice: 'Roadmap step was successfully updated.' }
         format.json { render :show, status: :ok, location: @roadmap_step }
       else
         format.html { render :edit }
