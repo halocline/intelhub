@@ -18,21 +18,21 @@
   <div class="control-group">
     <%= f.label :roadmap_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :roadmap_id, :class => 'form-control' %>
+      <%= f.number_field :roadmap_id, :class => 'form-control' %>
     </div>
     <%= error_span(@roadmap_step[:roadmap_id]) %>
   </div>
   <div class="control-group">
     <%= f.label :order, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :order, :class => 'form-control' %>
+      <%= f.number_field :order, :class => 'form-control' %>
     </div>
     <%= error_span(@roadmap_step[:order]) %>
   </div>
   <div class="control-group">
     <%= f.label :step, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :step, :class => 'form-control' %>
+      <%= f.text_area :step, :rows => 5, :class => 'form-control' %>
     </div>
     <%= error_span(@roadmap_step[:step]) %>
   </div>

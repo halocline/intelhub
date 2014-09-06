@@ -19,14 +19,28 @@
       <% @roadmap.roadmap_steps.each do |step| %>
           <%= div_for step do %>
             <div class="row">
-              <div class="col-md-2"><%= step.id %></div>
-              <div class="col-md-2"><%= link_to 'View', roadmap_step_path(step) %></div>
+              <div class="col-md-1"><%= step.id %></div>
+              <div class="col-md-1"><%= step.order %></div>
+              <div class="col-md-4"><%= step.step %></div>
+              <div class="col-md-1"><%= link_to 'Edit', edit_roadmap_step_path(step) %></div>
+              <div class="col-md-1"><%= link_to 'View', roadmap_step_path(step) %></div>
             </div>
           <% end %>
       <% end %>
     </div><!-- steps row -->
     <div id="new-step" class="row" style="display: none;">
       <div>yo</div>
+      <%= form_for([@roadmap, RoadmapStep.new]) do |f| %>
+        <div class="form-group">
+          <%= f.label :step, :class => '' %>
+          <%= f.text_field :step, :class => 'form-control' , :placeholder => 'enter instructions...' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :order, :class => '' %>
+          <%= f.number_field :order, :class => 'form-control' %>
+        </div>
+          <%= f.submit :class => 'btn btn-default' %>
+      <% end %>
       <button id="cancel-add-step" class="btn btn-default">
         <i class="fa fa-times"></i>
       </button>

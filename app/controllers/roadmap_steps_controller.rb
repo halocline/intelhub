@@ -24,7 +24,9 @@ class RoadmapStepsController < ApplicationController
   # POST /roadmap_steps
   # POST /roadmap_steps.json
   def create
-    @roadmap_step = RoadmapStep.new(roadmap_step_params)
+    @roadmap = Roadmap.find(params[:roadmap_id])
+    @roadmap_step = @roadmap.roadmap_steps.create(roadmap_step_params)
+    #@roadmap_step = RoadmapStep.new(roadmap_step_params)
 
     respond_to do |format|
       if @roadmap_step.save

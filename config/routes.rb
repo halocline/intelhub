@@ -15,7 +15,9 @@ Rails.application.routes.draw do
         resources :users
     end
     
-    resources :roadmaps
+    resources :roadmaps do
+      resources :roadmap_steps
+    end
 
     resources :problems do
         resources :questions
