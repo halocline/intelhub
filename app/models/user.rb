@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
 
 	validates_presence_of :username
 	validates_presence_of :account_id
+
+	mount_uploader :avatar, AvatarUploader
 end

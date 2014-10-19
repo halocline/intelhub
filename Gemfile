@@ -43,3 +43,12 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 
 # Use Twitter Bootstrap for front-end framework
 gem "twitter-bootstrap-rails"
+
+# Zip files
+gem 'rubyzip', '~> 1.1.6'
+
+# File upload management
+gem 'carrierwave'
+
+# File upload supplement for resizing images
+gem "mini_magick", "~> 4.0.0.rc" 
