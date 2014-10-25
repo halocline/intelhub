@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Roadmap:</strong>
+  <%= @roadmap_data_class.roadmap_id %>
+</p>
+
+<p>
+  <strong>Data class:</strong>
+  <%= @roadmap_data_class.data_class_id %>
+</p>
+
+<%= link_to 'Edit', edit_roadmap_data_class_path(@roadmap_data_class) %> |
+<%= link_to 'Back', roadmap_data_classes_path %>

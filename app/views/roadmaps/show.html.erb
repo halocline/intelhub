@@ -13,6 +13,41 @@
 <div class="row">
   <div class="col-md-12">
     <div class="row">
+      <h2>Required Data Classes</h2>
+    </div>
+    <div id="data-classes" class="row">
+      <table class="table table-hover">
+        <thead>
+          <th><%= model_class.human_attribute_name(:id) %></th>
+          <th><%= model_class.human_attribute_name(:data_class_id) %></th>
+          <th><%= model_class.human_attribute_name(:data_class) %></th>
+        </thead>
+        <% @roadmap.roadmap_data_classes.each do |data| %>
+          <tr>
+            <td><%= data.id %></td>
+            <td><%= data.data_class_id %></td>
+            <td><%= data.data_class.name %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div><!-- data-classes row -->
+    <div id="add-data-class" class="row">
+      <%= form_for(RoadmapDataClass.new) do |f| %>
+        <div class="form-group">
+          <%= f.label :roadmap_id, :class => 'hidden' %>
+          <%= f.text_field :roadmap_id, :class => 'form-control hidden', :value => @roadmap.id %>
+          <%= f.label :data_class_id, :class => '' %>
+          <%= f.text_field :data_class_id, :class => 'form-control', :placeholder => 'enter data class id' %>
+        </div>
+        <%= f.submit :class => 'btn btn-default' %>
+      <% end %>
+    </div><!-- add-data-class row -->
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
       <h2>Steps</h2>
     </div>
     <div id="steps" class="row">

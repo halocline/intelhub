@@ -1,0 +1,25 @@
+<%= form_for(@roadmap_data_class) do |f| %>
+  <% if @roadmap_data_class.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@roadmap_data_class.errors.count, "error") %> prohibited this roadmap_data_class from being saved:</h2>
+
+      <ul>
+      <% @roadmap_data_class.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :roadmap_id %><br>
+    <%= f.number_field :roadmap_id %>
+  </div>
+  <div class="field">
+    <%= f.label :data_class_id %><br>
+    <%= f.number_field :data_class_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
