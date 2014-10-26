@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :steps
+
   resources :roadmap_data_classes
 
   resources :roadmap_steps

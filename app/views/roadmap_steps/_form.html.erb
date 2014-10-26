@@ -23,20 +23,19 @@
     <%= error_span(@roadmap_step[:roadmap_id]) %>
   </div>
   <div class="control-group">
+    <%= f.label :step_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :step_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@roadmap_step[:step_id]) %>
+  </div>
+  <div class="control-group">
     <%= f.label :order, :class => 'control-label' %>
     <div class="controls">
       <%= f.number_field :order, :class => 'form-control' %>
     </div>
     <%= error_span(@roadmap_step[:order]) %>
   </div>
-  <div class="control-group">
-    <%= f.label :step, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :step, :rows => 5, :class => 'form-control' %>
-    </div>
-    <%= error_span(@roadmap_step[:step]) %>
-  </div>
-
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

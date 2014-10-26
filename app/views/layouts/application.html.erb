@@ -54,19 +54,11 @@
       				  Problems <span class="caret"></span>
     			    </a>
         			<ul class="dropdown-menu" role="menu">
-        				<li><%= link_to "Problems", problems_path %></li>
-        				<li><%= link_to "Roadmaps", roadmaps_path  %></li>
-        				<li><%= link_to "Models", models_path  %></li>
         				<li><%= link_to "Problem Class", problem_classes_path  %></li>
-        			</ul>
-            </li>
-            <li class="dropdown">
-            	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      				  Accounts <span class="caret"></span>
-    			    </a>
-        			<ul class="dropdown-menu" role="menu">
-        				<li><%= link_to "Accounts", accounts_path  %></li>
-        				<li><%= link_to "Users", users_path  %></li>
+                <li><%= link_to "Problems", problems_path %></li>
+        				<li><%= link_to "Roadmaps", roadmaps_path %></li>
+                <li><%= link_to "Steps", roadmap_steps_path %></li>
+        				<li><%= link_to "Models", models_path %></li>
         			</ul>
             </li>
             <li class="dropdown">
@@ -74,8 +66,18 @@
                 Data <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "Data Types", data_classes_path  %></li>
                 <li><%= link_to "Sources", data_sources_path  %></li>
                 <li><%= link_to "Data Items", data_items_path  %></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                Accounts <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "Accounts", accounts_path  %></li>
+                <li><%= link_to "Users", users_path  %></li>
               </ul>
             </li>
           </ul>
