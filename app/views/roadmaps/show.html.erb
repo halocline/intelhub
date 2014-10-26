@@ -19,14 +19,21 @@
       <table class="table table-hover">
         <thead>
           <th><%= model_class.human_attribute_name(:id) %></th>
-          <th><%= model_class.human_attribute_name(:data_class_id) %></th>
           <th><%= model_class.human_attribute_name(:data_class) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </thead>
         <% @roadmap.roadmap_data_classes.each do |data| %>
           <tr>
-            <td><%= data.id %></td>
-            <td><%= data.data_class_id %></td>
-            <td><%= data.data_class.name %></td>
+            <td><%= link_to data.id, roadmap_data_class_path(data.id) %></td>
+            <td><%= link_to data.data_class.name, data_class_path(data.data_class.id) %></td>
+            <td>
+              <%= link_to '', edit_roadmap_data_class_path(data), :class => 'btn btn-sm fa fa-edit' %>
+              <%= link_to '',
+                  roadmap_data_class_path(data),
+                  :method => :delete,
+                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                  :class => 'btn btn-sm btn-danger fa fa-minus' %>
+            </td>
           </tr>
         <% end %>
       </table>
@@ -36,8 +43,8 @@
         <div class="form-group">
           <%= f.label :roadmap_id, :class => 'hidden' %>
           <%= f.text_field :roadmap_id, :class => 'form-control hidden', :value => @roadmap.id %>
-          <%= f.label :data_class_id, :class => '' %>
-          <%= f.text_field :data_class_id, :class => 'form-control', :placeholder => 'enter data class id' %>
+          <%= f.label 'Add required data class', :class => '' %>
+          <%= f.collection_select(:data_class_id, DataClass.all, :id, :name, {}, {:class => 'form-control'}) %>
         </div>
         <%= f.submit :class => 'btn btn-default' %>
       <% end %>
