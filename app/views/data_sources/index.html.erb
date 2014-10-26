@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:data_class_id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:uri) %></th>
       <th><%= model_class.human_attribute_name(:data_file) %></th>
@@ -18,7 +19,8 @@
     <% @data_sources.each do |data_source| %>
       <tr>
         <td><%= link_to data_source.id, data_source_path(data_source) %></td>
-        <td><%= data_source.name %></td>
+        <td><%= link_to data_source.data_class.name, data_class_path(data_source.data_class_id) %></td>
+        <td><%= link_to data_source.name, data_source_path(data_source) %></td>
         <td><%= data_source.uri %></td>
         <td><%= data_source.data_file %></td>
         <td><%= data_source.description %></td>

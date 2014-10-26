@@ -69,6 +69,6 @@ class DataSourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def data_source_params
-      params.require(:data_source).permit(:name, :uri, :description, :data_file, :remove_data_file, :remote_data_file_url)
+      params.require(:data_source).permit(:name, :data_class_id, :uri, :description, :data_file, :remove_data_file, :remote_data_file_url)
     end
 end

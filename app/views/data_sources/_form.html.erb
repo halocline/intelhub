@@ -23,6 +23,10 @@
     <%= error_span(@data_source[:name]) %>
   </div>
   <div class="control-group">
+    <%= f.label :data_class_id, :class => 'control-label'%>
+    <%= f.collection_select(:data_class_id, DataClass.all, :id, :name, {}, {:class => 'form-control'}) %>
+  </div>
+  <div class="control-group">
     <%= f.label :uri, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :uri, :class => 'form-control' %>

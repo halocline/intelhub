@@ -8,6 +8,22 @@
   <dd><%= @data_class.name %></dd>
 </dl>
 
+<div class="">
+	<h2>Sources</h2>
+	<table class="table table-hover">
+		<thead>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+			<th><%= model_class.human_attribute_name(:data_source) %></th>
+		</thead>
+		<% @data_class.data_sources.each do |source| %>
+      <tr>
+        <td><%= link_to source.id, data_source_path(source.id) %></td>
+        <td><%= link_to source.name, data_source_path(source.id) %></td>
+      </tr>
+		<% end %>
+	</table>
+</div>
+
 <%= link_to t('.back', :default => t("helpers.links.back")),
               data_classes_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
