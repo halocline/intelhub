@@ -22,6 +22,12 @@
     </div>
     <%= error_span(@step[:step]) %>
   </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'form-control', :rows => 10 %>
+    </div>
+  </div>
 
 
   <%= f.submit nil, :class => 'btn btn-primary' %>

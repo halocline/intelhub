@@ -69,6 +69,6 @@ class StepsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def step_params
-      params.require(:step).permit(:step)
+      params.require(:step).permit(:step, :description)
     end
 end

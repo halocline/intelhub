@@ -7,6 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:step) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -15,7 +16,8 @@
     <% @steps.each do |step| %>
       <tr>
         <td><%= link_to step.id, step_path(step) %></td>
-        <td><%= step.step %></td>
+        <td><%= link_to step.step, step_path(step) %></td>
+        <td><%= step.description %></td>
         <td><%=l step.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
